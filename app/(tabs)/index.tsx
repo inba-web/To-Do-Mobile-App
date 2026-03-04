@@ -7,7 +7,6 @@ export default function Index() {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Your App 🚀</Text>
       <Text style={styles.subtitle}>Modify app/index.tsx to customize this screen.</Text>
-      <Link href={"/about"} > Visit About Screen</Link>
     </View>
   );
 }

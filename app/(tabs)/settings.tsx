@@ -1,12 +1,26 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const settings = () => {
+const Settings = () => {
   return (
-    <View>
-      <Text>Settings Page</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Settings Page</Text>
     </View>
   )
 }
 
-export default settings
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "black",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  text: {
+    color: "white",
+    fontFamily: "sans-serif",
+    fontSize: 18
+  }
+})
+
+export default Settings

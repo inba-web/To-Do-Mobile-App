@@ -31,10 +31,12 @@ const TabsLayout = () => {
         tabBarIcon: ({color,size}) => <Ionicons name='flash-outline' size={size} color={color} />
       }} />
 
-      <Tabs.Screen name='Settings' options={{
+      <Tabs.Screen name='settings' options={{
         title:"Settings",
         tabBarIcon: ({color,size}) => <Ionicons name='settings' size={size} color={color} />
       }} />
+
+      {/* <Tabs.Screen name='explore' options={{ href: null }} /> */}
     </Tabs>
   )
 }

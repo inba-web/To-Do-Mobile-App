@@ -32,13 +32,6 @@ export const toggleTodo = mutation({
     }
 })
 
-export const deleteTodo = mutation({
-    args: {id:v.id("todos")},
-    handler: async(ctx, args) => {
-        await ctx.db.delete(args.id)
-    }
-})
-
 export const updateTodo = mutation({
     args: {
         id: v.id("todos"),

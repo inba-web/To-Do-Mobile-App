@@ -8,7 +8,7 @@ export default function Index() {
   const {toggleDarkMode, } = useTheme();
 
   const todos = useQuery(api.todos.getTodos)
-  console.log(todos)
+  console.log(todos) 
 
   const addTodo = useMutation(api.todos.addTodo)
   const clearAllTodo = useMutation(api.todos.deleteAllTodos)

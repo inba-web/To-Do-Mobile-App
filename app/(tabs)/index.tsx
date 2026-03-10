@@ -58,6 +58,12 @@ export default function Index() {
     ])
   }
 
+  const handleEditTodo = (todo: Todo) => {
+    
+  }
+  const handleSaveEdit = (tod: Todo) => {}
+  const handleCancel = (todo: Todo) => {} 
+
   const renderTodoItem = ({ item }: { item: Todo }) => {
     return (
       <View style={homeStyles.todoItemWrapper}>

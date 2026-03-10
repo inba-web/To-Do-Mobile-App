@@ -31,10 +31,10 @@ const Header = () => {
 
         <View style={homeStyles.titleContainer}>
             <Text style={homeStyles.title}>Today&apos;s Tasks 👀</Text>
+        </View>
             <Text style={homeStyles.subtitle}>
                 {completedCounts} of {totalCount} tasks completed
             </Text>
-        </View>
 
         {
             totalCount > 0 && (

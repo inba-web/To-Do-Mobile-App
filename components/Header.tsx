@@ -1,58 +1,64 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { useQuery } from 'convex/react'
-import { api } from '@/convex/_generated/api'
-import { createHomeStyles } from '@/assets/styles/home.style'
-import useTheme from '@/hooks/useTheme'
+import { View, Text } from "react-native";
+import React from "react";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { createHomeStyles } from "@/assets/styles/home.style";
+import useTheme from "@/hooks/useTheme";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from '@expo/vector-icons'
-
+import { Ionicons } from "@expo/vector-icons";
 
 const Header = () => {
+  const { colors } = useTheme();
 
-    const { colors } = useTheme();
+  const homeStyles = createHomeStyles(colors);
 
-    const homeStyles = createHomeStyles(colors);
+  const todos = useQuery(api.todos.getTodos);
 
-    const todos = useQuery(api.todos.getTodos);
+  const completedCounts = todos
+    ? todos.filter((todo) => todo.isCompleted).length
+    : 0;
+  const totalCount = todos ? todos.length : 0;
 
-    const completedCounts = todos ? todos.filter((todo) => todo.isCompleted).length : 0; 
-    const totalCount = todos ? todos.length : 0;
-
-    const progressPercentage = totalCount > 0 ? (completedCounts / totalCount) * 100 : 0;
+  const progressPercentage =
+    totalCount > 0 ? (completedCounts / totalCount) * 100 : 0;
 
   return (
     <View style={homeStyles.header}>
+      <View style={homeStyles.titleContainer}>
+        <LinearGradient
+          colors={colors.gradients.primary}
+          style={homeStyles.iconContainer}
+        >
+          <Ionicons name="flash-outline" size={28} color="#fff" />
+        </LinearGradient>
         <View style={homeStyles.titleContainer}>
-            <LinearGradient colors={colors.gradients.primary} style={homeStyles.iconContainer}>
-                <Ionicons name='flash-outline' size={28} color="#fff" />
-            </LinearGradient>
+          <Text style={homeStyles.title}>Today&apos;s Tasks 👀</Text>
         </View>
+      </View>
+      <Text style={homeStyles.subtitle}>
+        {completedCounts} of {totalCount} tasks completed
+      </Text>
 
-        <View style={homeStyles.titleContainer}>
-            <Text style={homeStyles.title}>Today&apos;s Tasks 👀</Text>
-        </View>
-            <Text style={homeStyles.subtitle}>
-                {completedCounts} of {totalCount} tasks completed
+      {totalCount > 0 && (
+        <View style={homeStyles.progressContainer}>
+          <View style={homeStyles.progressBarContainer}>
+            <View style={homeStyles.progressBar}>
+              <LinearGradient
+                colors={colors.gradients.success}
+                style={[
+                  homeStyles.progressFill,
+                  { width: `${progressPercentage}%` },
+                ]}
+              />
+            </View>
+            <Text style={homeStyles.progressText}>
+              {Math.round(progressPercentage)}%
             </Text>
-
-        {
-            totalCount > 0 && (
-                <View style={homeStyles.progressContainer}>
-                    <View style={homeStyles.progressBarContainer}>
-                        <View style={homeStyles.progressBar}>
-                            <LinearGradient
-                                colors={colors.gradients.success}
-                                style={[homeStyles.progressFill, {width: `${progressPercentage}%`}]} 
-                            />
-                        </View>
-                        <Text style={homeStyles.progressText}>{Math.round(progressPercentage)}%</Text>
-                    </View>
-                </View>
-            )
-        }
+          </View>
+        </View>
+      )}
     </View>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

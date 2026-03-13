@@ -21,14 +21,48 @@ const ProgressStats = () => {
     <LinearGradient colors={colors.gradients.surface} style={settingssStyle.section}>
         <Text style={settingssStyle.sectionTitle}>Progress State</Text>
 
-        <LinearGradient colors={colors.gradients.background style={[settingssStyle.statCard,{borderLeftColor: colors.primary}]}}>
+        {/* TOTAL TODOS */}
+        <LinearGradient colors={colors.gradients.background} style={[settingssStyle.statCard,{borderLeftColor: colors.primary}]}>
             <View style={settingssStyle.statIconContainer}>
                 <LinearGradient colors={colors.gradients.primary} style={settingssStyle.statIcon}>
                     <Ionicons name='list' size={20} color="#fff" />
                 </LinearGradient>
             </View>
+
+            <View>
+                <Text style={settingssStyle.statNumber}>{totalTodos}</Text>
+                <Text style={settingssStyle.statLabel}>Total Todos</Text>
+            </View>
         </LinearGradient>
-        
+
+        {/* COMPLETED TODOS */}
+        <LinearGradient colors={colors.gradients.background} style={[settingssStyle.statCard,{borderLeftColor: colors.primary}]}>
+            <View style={settingssStyle.statIconContainer}>
+                <LinearGradient colors={colors.gradients.success} style={settingssStyle.statIcon}>
+                    <Ionicons name='checkmark-circle' size={20} color="#fff" />
+                </LinearGradient>
+            </View>
+
+            <View>
+                <Text style={settingssStyle.statNumber}>{completedTodos}</Text>
+                <Text style={settingssStyle.statLabel}>Completed</Text>
+            </View>
+        </LinearGradient>
+
+        {/* ACTIVE TODOS */}
+         <LinearGradient colors={colors.gradients.background} style={[settingssStyle.statCard,{borderLeftColor: colors.primary}]}>
+            <View style={settingssStyle.statIconContainer}>
+                <LinearGradient colors={colors.gradients.warning} style={settingssStyle.statIcon}>
+                    <Ionicons name='time' size={20} color="#fff" />
+                </LinearGradient>
+            </View>
+
+            <View>
+                <Text style={settingssStyle.statNumber}>{activeTodos}</Text>
+                <Text style={settingssStyle.statLabel}>Active Todos</Text>
+            </View>
+        </LinearGradient>
+
     </LinearGradient>
   )
 }

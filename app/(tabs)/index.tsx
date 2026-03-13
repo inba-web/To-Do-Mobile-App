@@ -226,10 +226,6 @@ export default function Index() {
           ListEmptyComponent={<EmptyState />}
           showsVerticalScrollIndicator={false}
         />
-
-        <TouchableOpacity onPress={toggleDarkMode}>
-          <Text>Toggle the Dark Mode</Text>
-        </TouchableOpacity>
       </SafeAreaView>
     </LinearGradient>
   );

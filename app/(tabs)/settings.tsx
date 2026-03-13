@@ -37,7 +37,6 @@ const Settings = () => {
 
         </ScrollView>
       </SafeAreaView>
-      <Text>Settings Screen</Text>
     </LinearGradient>
   )
 }

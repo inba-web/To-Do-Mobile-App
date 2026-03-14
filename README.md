@@ -22,7 +22,7 @@ React Native
 
 Expo
 
-JavaScript
+TypeScript
 
 React Hooks
 

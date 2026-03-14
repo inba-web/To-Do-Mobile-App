@@ -97,7 +97,7 @@ EXPO_PUBLIC_CONVEX_SITE_URL=https://your-project.convex.site
 ▶️ Running Locally
 1️⃣ Clone the Repository
 ```
-git clone https://github.com/your-username/todo-app.git
+git clone git@github.com:inba-web/To-Do-Mobile-App.git
 cd todo-app
 ```
 2️⃣ Install Dependencies

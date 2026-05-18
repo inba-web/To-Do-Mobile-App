@@ -160,20 +160,6 @@ You can run the application using:
 
 ---
 
-# 📸 Screenshots
-
-> Add your application screenshots here.
-
-```md
-/assets/screenshots/home.png
-/assets/screenshots/tasks.png
-```
-
-Example:
-
-```md
-![Home Screen](./assets/screenshots/home.png)
-```
 
 ---
 
